@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Ignore .env file (containing sensitive data)
+.env
+.env.local
+.env.*.local
