@@ -34,7 +34,7 @@ const Header = () => {
                         {/* Search */}
 
                         <IoSearch className="text-[16px] block" />
-                        <Link href="/cart"><MdOutlineShoppingCart /></Link>
+                        <Link href="/addToCart"><MdOutlineShoppingCart /></Link>
 
 
 
