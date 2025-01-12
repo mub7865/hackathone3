@@ -8,6 +8,10 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+  			heroImage: "url(/hero1.png)",
+  			SignUp: "url(/SignUp.png)"
+  		},
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

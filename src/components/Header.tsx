@@ -4,7 +4,6 @@ import { IoSearch } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
-import { SiAboutdotme } from "react-icons/si";
 
 
 const Header = () => {
@@ -19,7 +18,7 @@ const Header = () => {
                     <IoSearch className="text-xl" />
                     <h1 className="text-[#22202E] text-2xl font-semibold">Avion</h1>
                     <div className=" flex text-xl items-center gap-3">
-                        <Link href="/cart">
+                        <Link href="/addToCart">
                             <h2 className="flex relative  gap-[2px]">
                                 <MdOutlineShoppingCart /> <span className="absolute bottom-[12px] left-[8px] w-4 bg-[#2f2c3f] text-white text-sm text-center rounded-full">0</span>
                             </h2>
