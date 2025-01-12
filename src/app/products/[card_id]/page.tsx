@@ -27,23 +27,23 @@ export default async function details({params}: {params: Promise<{card_id: numbe
   console.log(card_result);
   
   return (
-    <div className='p-28'>
-      <div className='p-8 grid grid-cols-1 md:grid-cols-2 gap '>
+    <div className='p-8 md:p-16 lg:p-28 overflow-hidden'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-7 lg:gap:10 '>
         <Image
           src={card_result?.imageUrl}
           alt={`Card Image`}
-          width={305}
-          height={375}
-          className="w-[163px] h-[201px] lg:w-[305px] lg:h-[375px] cursor-pointer"
+          width={161}
+          height={201}
+          className="lg:w-[305px] lg:h-[375px] md:w-[305px] md:h-[375px] cursor-pointer"
         />
         <div className="flex flex-col gap-5">
-          <h2 className="text-[20px] text-[#404b5b] leading-7 font-bold cursor-pointer">
+          <h2 className="text-[20px] text-[#404b5b]  font-bold cursor-pointer">
             {card_result?.productName}
           </h2>
-          <p className="text-sm leading-7 font-normal cursor-pointer">
+          <p className="text-sm  font-normal cursor-pointer">
             {card_result?.Productdetail}
           </p>
-          <h4 className="text-[18px] leading-7 font-normal text-[#404b5b] cursor-pointer">
+          <h4 className="text-[18px]  font-normal text-[#404b5b] cursor-pointer">
             £{card_result?.Productprice}
           </h4>
           <div className="flex flex-col items-baseline">
