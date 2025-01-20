@@ -1,7 +1,7 @@
 // D:\New folder\Hackathone\Hackathone-3\src\components\ProductsListing.tsx
 import { client } from '@/sanity/lib/client';
 import Cart from './cart'; // Cart component ko use kiya gaya hai
-import CategoryComponent from './CategoryComponent';
+import CategoryHeading from './CategoryHeading';
 
 
 interface cardItems {
@@ -40,7 +40,7 @@ const ProductsListing = async () => {
   
           return (
             <div key={category.slug}>
-              <CategoryComponent categoryName={category.name} />
+              <CategoryHeading categoryName={category.name} />
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px]">
                 {categoryProducts.map((product: cardItems, index: number) => (
                   <Cart key={index} product={product} />
