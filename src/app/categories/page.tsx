@@ -7,6 +7,7 @@ import Cart from '@/components/cart';
 
 interface Product {
   _id: string;
+  id: string;
   name: string;
   imageUrl: string;
   price: number;
@@ -91,7 +92,7 @@ export default function CategoriesPage() {
       ) : products.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product) => (
-            <Cart key={product._id} product={product} />
+            <Cart key={product._id} product={{ ...product, id: product._id }} />
           ))}
         </div>
       ) : (

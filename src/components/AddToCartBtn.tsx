@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
-const AddToCartBtn = ({ productId }: { productId: string }) => {
+const AddToCartBtn = ({ productId, className }: { productId: string; className?: string }) => {
     const router = useRouter();
 
     const addToCart = () => {
@@ -42,7 +42,7 @@ const AddToCartBtn = ({ productId }: { productId: string }) => {
 
     return (
         <button
-            className="flex items-center bg-[#2f2c3f] text-white px-6 py-2 rounded-md"
+            className={`flex items-center bg-[#2f2c3f] text-white px-6 py-2 rounded-md ${className}`}
             onClick={addToCart}
         >
             <MdOutlineShoppingCart size={35} /> Add To Cart

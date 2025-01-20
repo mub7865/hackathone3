@@ -6,13 +6,9 @@ import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect, useState, useRef } from "react";
 import Navlinks from "./Navlinks";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter} from "next/navigation";
 
-interface Category {
-  _id: string;
-  name: string;
-  slug: { current: string };
-}
+
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
