@@ -7,10 +7,10 @@ const Features = () => {
 
 
         <>
-            <div className='px-[24px] py-[49px] lg:py-[80px] lg:px-[82px]'>
-                <h4 className='lg:text-center font-normal lg:text-[24px] tex-[20px]  lg:leading-[33.6px] leading-7 text-[#2A254B]'>What makes our brand different</h4>
+            <div className='px-[24px] py-[49px] max-md:py-[60px] max-md:px-[60px] xl:py-[80px] xl:px-[82px]'>
+                <h4 className='sm:text-center font-normal sm:text-[24px] text-[20px]  sm:leading-[33.6px] leading-7 text-[#2A254B]'>What makes our brand different</h4>
 
-                <div className='mt-[36px] lg:mt-[57px] flex flex-col lg:flex-row lg:gap-[22px] gap-[26px]'>
+                <div className='mt-[36px] max-md:mt-[57px] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  xl:gap-[22px] gap-[26px]'>
                     {/* 1 */}
                     <div className='lg:p-[48px] py-[28px] px-6 bg-[#F9F9F9] '>
                         <div className='flex flex-col gap-3'>

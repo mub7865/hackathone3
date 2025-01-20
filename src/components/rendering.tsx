@@ -6,8 +6,8 @@ const Rendering = ({ price }: { price: number }) => {
 
   return (
     <div>
-      <div className='flex items-center gap-4'>
-        <div className="p-2 border flex gap-10 items-center">
+      <div className='flex items-center gap-4 '>
+        <div className="p-2 border flex gap-10 items-center bg-[#F9F9F9]">
           <button disabled={quantity === 1} onClick={() => setQuantity(quantity - 1)}>
             -
           </button>

@@ -1,36 +1,84 @@
-const productSchema = {
-    name: 'Product',
-    type: 'document',
-    title: 'Product',
+// D:\New folder\Hackathone\Hackathone-3\src\sanity\schemaTypes\products.ts
+import { defineType, defineField } from "sanity"
+
+
+ const product = defineType({
+    name: "product",
+    title: "Product",
+    type: "document",
     fields: [
-      {
-        name: 'id',
-        type: 'number',
-        title: 'Product ID',
-        default: Date.now(),
-      },
-      {
-        name: 'productName',
-        type: 'string',
-        title: 'Product Name',
-      },
-      {
-        name: 'Productdetail',
-        type: 'string',
-        title: 'Product Detail',
-      },
-      {
-        name: 'Productprice',
-        type: 'string',
-        title: 'Product Price',
-      },
-      {
-        name: 'ProductImage',
-        type: 'image',
-        title: 'Product Image',
-      },
-    ],
-  };
-  
-  export default productSchema;
-  
+        defineField({
+            name:"category",
+            title:"Category",
+            type:"reference",
+            to:[{
+                type:"category"
+            }]
+        }
+        ),
+        defineField({
+            name: "name",
+            title: "Title",
+            validation: (rule) => rule.required(),
+            type: "string"
+        }),
+        defineField({
+            name: "slug",
+            title: "Slug",
+            validation: (rule) => rule.required(),
+            type: "slug"
+        }),
+        defineField({
+            name: "image",
+            type: "image",
+            validation: (rule) => rule.required(),
+            title: "Product Image"
+        }),
+        defineField({
+            name: "price",
+            type: "number",
+            validation: (rule) => rule.required(),
+            title: "Price",
+        }),
+        defineField({
+            name: "quantity",
+            title: "Quantity",
+            type: "number",
+            validation: (rule) => rule.min(0),
+          }),
+        defineField({
+            name: "tags",
+            type: "array",
+            title: "Tags",
+            of:[{
+                type: "string"
+            }]
+        }),
+        defineField({
+            name: 'description',
+            title: 'Description',
+            type: 'text',
+            description: 'Detailed description of the product',
+          }),
+          defineField({
+            name: 'features',
+            title: 'Features',
+            type: 'array',
+            of: [{ type: 'string' }],
+            description: 'List of key features of the product',
+          }),
+          defineField({
+            name: 'dimensions',
+            title: 'Dimensions',
+            type: 'object',
+            fields: [
+              { name: 'height', title: 'Height', type: 'string' },
+              { name: 'width', title: 'Width', type: 'string' },
+              { name: 'depth', title: 'Depth', type: 'string' },
+            ],
+            description: 'Dimensions of the product',
+          }),
+    ]
+})
+
+export default product

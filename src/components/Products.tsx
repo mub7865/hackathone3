@@ -4,25 +4,34 @@ import Cart from './cart'; // Cart component ko use kiya gaya hai
 
 
 interface cardItems {
-  id: number;
-  productName: string;
-  Productprice: number;
-  imageUrl: string;
+  id:string,
+  name: string;
+  price: number;
+ slug: string;
+ imageUrl:string
 }
 
 const Products = async () => {
-  const data: cardItems[] = await client.fetch(`*[_type == "Product"]{
-    id,
-    productName,
-    Productprice, 
-    "imageUrl": ProductImage.asset->url  
-  }`);
+  const data: cardItems[] = await client.fetch(`*[_type == "product"]{
+    slug,
+  name,
+  price,
+  "categoryName": category->name,
+  "categorySlug": category->slug.current,
+  "imageUrl": image.asset->url,
+  tags,
+  description,
+  features,
+  dimensions,
+   
+}
+`);
 
   return (
-    <div className="w-390 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[15px] ">
+    <div className="w-full pt-6 pb-7 px-6 sm:px-[80px]">
+      <div className="grid grid-cols-1  sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-[15px] ">
 
-        {data.map((product: cardItems, index: number) => (
+        {data.reverse().slice(0, 4).map((product: cardItems, index: number) => (
           <Cart key={index} product={product} />
         ))}
       </div>

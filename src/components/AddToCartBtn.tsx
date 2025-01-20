@@ -2,30 +2,42 @@
 import { useRouter } from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
-const AddToCartBtn = ({ id }: { id: number }) => {
+const AddToCartBtn = ({ productId }: { productId: string }) => {
     const router = useRouter();
 
     const addToCart = () => {
-        let addToCart = JSON.parse(localStorage.getItem("addToCart")!);
-
-        if (addToCart === null) {
-            localStorage.setItem("addToCart", JSON.stringify([]));
-            addToCart = JSON.parse(localStorage.getItem("addToCart")!);
-        }
-
-        if (Array.isArray(addToCart)) {
-            const isProductPresent = addToCart.find((item: number) => item === id);
-
-            if (isProductPresent) {
-                alert("This product is already in cart");
-            } else {
-                addToCart.push(id);
+        try {
+            let cartItems = [];
+            const existingCart = localStorage.getItem("addToCart");
+            
+            if (existingCart) {
+                cartItems = JSON.parse(existingCart);
+                if (!Array.isArray(cartItems)) {
+                    cartItems = [];
+                }
             }
+
+            if (cartItems.includes(productId)) {
+                alert("This product is already in cart");
+                return;
+            }
+
+            cartItems.push(productId);
+            localStorage.setItem("addToCart", JSON.stringify(cartItems));
+            
+            // Dispatch custom event to update cart count
+            window.dispatchEvent(new Event('cartUpdated'));
+            
+            // Refresh the cart page if we're already on it
+            if (window.location.pathname === '/addToCart') {
+                window.location.reload();
+            } else {
+                router.push('/addToCart');
+            }
+        } catch (error) {
+            console.error("Error adding item to cart:", error);
+            alert("Failed to add item to cart. Please try again.");
         }
-
-        localStorage.setItem("addToCart", JSON.stringify(addToCart));
-
-        router.push(`/addToCart`);
     };
 
     return (
