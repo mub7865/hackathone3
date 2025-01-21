@@ -101,7 +101,17 @@ const CartContent = () => {
             toast.error('Your cart is empty');
             return;
         }
-        // Add your checkout logic here
+        // Store cart data in local storage
+        const cartData = products.map(product => ({
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            quantity: product.quantity
+        }));
+        localStorage.setItem('checkoutCart', JSON.stringify(cartData));
+        // Redirect to checkout page
+        window.location.href = '/checkout';
+        // Payment method will be implemented here in the future using Stripe
         toast.success('Proceeding to checkout...');
     };
 
