@@ -3,10 +3,9 @@ import Features from '@/components/Features';
 import Footer2 from '@/components/Footer2';
 import Listing2 from '@/components/Listing2';
 import SignUp from '@/components/SignUp';
-import Image from 'next/image'
+import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react'
-
+import React from 'react';
 
 const About = () => {
     return (
@@ -15,7 +14,7 @@ const About = () => {
                 {/* section 1 */}
                 <section className='w-full lg:space-y-10 px-6 lg:px-[128px] py-8 lg:py-[88px] lg:flex justify-between items-center'>
                     <div className='lg:w-[704px]'>
-                        <h1 className='font-normal lg:text-[36px] text-[28px] font-bold leading-[50.4px] text-[#2A254B]'>A brand built on the love of craftsmanship, quality, and outstanding customer service</h1>
+                        <h1 className=' lg:text-[36px] text-[28px] font-bold leading-[50.4px] text-[#2A254B]'>A brand built on the love of craftsmanship, quality, and outstanding customer service</h1>
                         <p className='text-[#505977] text-[18px] lg:leading-[21.6px]'>When we started Avion, the idea was simple. Make high-quality furniture affordable and available for the mass market.</p>
                     </div>
                     <div className='lg:ml-10'>

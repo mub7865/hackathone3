@@ -34,7 +34,7 @@ const Navlinks = () => {
   }, []);
 
   return (
-    <div className="space-x-5 ">
+    <  >
       <Link href="/" className="hover:text-[#444242] transition-colors duration-200  md:text-[14px]  lg:text-[20px]">Home</Link>
           <Link href="/products" className="hover:text-[#444242] transition-colors duration-200  md:text-[14px]  lg:text-[20px]">All Products</Link>
           <Link href="/about" className="hover:text-[#444242] transition-colors duration-200  md:text-[14px]  lg:text-[20px]">About</Link>
@@ -48,7 +48,7 @@ const Navlinks = () => {
           {category.name}
         </Link>
       ))}
-    </div>
+    </>
   )
 }
  

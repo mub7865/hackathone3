@@ -1,13 +1,13 @@
-import WishlistPage from '@/components/WishlistPage'
-import React from 'react'
+import WishlistPage from '@/components/WishlistPage';
 
 const wishlistPage = () => {
-  return (
-    <div>
-      < WishlistPage/>
-      
-    </div>
-  )
-}
+  
+
+    return (
+        <div>
+            <WishlistPage />vdg
+        </div>
+    );
+};
 
 export default wishlistPage
