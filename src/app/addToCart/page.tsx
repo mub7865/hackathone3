@@ -1,8 +1,16 @@
 // Hackathone-3\src\app\addToCart\page.tsx
+'use client'
 import CartContent from '@/components/CartContent';
-import React from 'react';
+import React, { useEffect } from "react";
+import {  sanityUserPost } from "@/app/services/userApi";
+
 
 const CartProducts = () => {
+
+    useEffect(()=>{
+        sanityUserPost()
+    },[])
+
     return (
         <>
             <main>

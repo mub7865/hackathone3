@@ -5,7 +5,7 @@ const wishlistPage = () => {
 
     return (
         <div>
-            <WishlistPage />vdg
+            <WishlistPage />
         </div>
     );
 };

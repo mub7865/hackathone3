@@ -1,12 +1,15 @@
+// C:\Users\Ubaid Ansari\Desktop\Hackathone Day 1 to 7\Hackathone-3\src\components\Header.tsx
+
 'use client'
 import Link from "next/link"
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
 import { AiOutlineHeart } from "react-icons/ai";
 import { useEffect, useState, useRef } from "react";
 import Navlinks from "./Navlinks";
 import { useRouter} from "next/navigation";
+import {  SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
+
 
 
 
@@ -55,7 +58,7 @@ const Header = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/categories?search=${encodeURIComponent(searchQuery.trim())}`);
+      router.push(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
       setShowSearch(false);
       setSearchQuery('');
     }
@@ -133,7 +136,18 @@ const Header = () => {
               </span>
             )}
           </Link>
-          <CgProfile className="cursor-pointer" />
+          {/* <CgProfile className="cursor-pointer" /> */}
+
+          <SignedOut>
+          <div className="p-2 text-white font-medium bg-[#2A254B] rounded-lg ">
+            <SignInButton />
+            </div>
+
+          </SignedOut>
+          <SignedIn >
+            <UserButton />
+          </SignedIn>
+          
         </div>
       </div>
 

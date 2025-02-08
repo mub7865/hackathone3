@@ -1,11 +1,18 @@
+// C:\Users\Ubaid Ansari\Desktop\Hackathone Day 1 to 7\Hackathone-3\src\components\AddToCartBtn.tsx
+
 "use client";
 import { useRouter } from "next/navigation";
 import { MdOutlineShoppingCart } from "react-icons/md";
-
+import Swal from "sweetalert2"
 const AddToCartBtn = ({ productId, className }: { productId: string; className?: string }) => {
     const router = useRouter();
 
     const addToCart = () => {
+        Swal.fire({
+            title: "Your item added sucessfully",
+            icon: "success",
+            draggable: true
+          });
         try {
             let cartItems = [];
             const existingCart = localStorage.getItem("addToCart");
@@ -42,7 +49,7 @@ const AddToCartBtn = ({ productId, className }: { productId: string; className?:
 
     return (
         <button
-            className={`flex items-center bg-[#2f2c3f] text-white px-6 py-2 rounded-md ${className}`}
+            className={`flex items-center  text-white px-6  rounded-md ${className}`}
             onClick={addToCart}
         >
             <MdOutlineShoppingCart size={35} /> Add To Cart

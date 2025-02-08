@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MdDelete } from 'react-icons/md';
+import Link from 'next/link';
 
 interface Product {
   id: string;
@@ -18,6 +19,10 @@ interface Product {
 export default function WishlistPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
+
+  const getSlug = (slug: string | { current: string }) => {
+    return typeof slug === 'string' ? slug : slug.current;
+  };
 
   useEffect(() => {
     const loadWishlist = () => {
@@ -69,9 +74,9 @@ export default function WishlistPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center p-4">
         <p className="text-lg md:text-xl text-gray-600 mb-4">Your wishlist is empty</p>
-        <a href="/categories" className="text-[#2A254B] hover:underline font-medium">
+        <Link href="/products" className="text-[#2A254B] hover:underline font-medium">
           Continue Shopping
-        </a>
+        </Link>
       </div>
     );
   }
@@ -96,12 +101,14 @@ export default function WishlistPage() {
               <tr key={product.slug} className="hover:bg-gray-50">
                 <td className="py-4 px-4">
                   <div className="relative w-20 h-20 md:w-32 md:h-32">
+                  <Link href={`/products/${getSlug(product.slug)}`} className="flex flex-col items-center">
                     <Image 
                       src={product.imageUrl} 
                       alt={product.name} 
                       fill
                       className="object-cover rounded-md"
                     />
+                    </Link>
                   </div>
                 </td>
                 <td className="py-4 px-4">

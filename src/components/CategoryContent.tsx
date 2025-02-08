@@ -84,7 +84,7 @@ const CategoryContent = () => {
           {loading ? (
             <p>Loading products...</p>
           ) : products.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1  sm:grid-cols-2  md:grid-cols-3 lg:grid-cols-4 gap-[15px]">
               {products.map((product) => (
                 <Cart key={product._id} product={{ ...product, id: product._id }} />
               ))}
